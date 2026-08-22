@@ -23,14 +23,18 @@
     <section class="card">
       <div class="grid two">
         <label>
-          <span>Adresse de l’API</span>
-          <input id="apiBase" placeholder="https://ton-worker.workers.dev">
+          <span>Supabase URL</span>
+          <input id="supabaseUrl" placeholder="https://xxxx.supabase.co">
         </label>
         <label>
           <span>Room</span>
           <input id="room" placeholder="ex: zedrox-7f4k92" autocomplete="off">
         </label>
       </div>
+      <label class="key-field">
+        <span>Supabase anon key</span>
+        <input id="anonKey" placeholder="eyJhbGciOi..." autocomplete="off">
+      </label>
       <div class="actions">
         <button id="saveBtn" class="secondary">Enregistrer</button>
         <button id="testBtn" class="secondary">Tester la connexion</button>
@@ -42,7 +46,7 @@
         <input id="fileInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif,video/mp4,video/webm" hidden>
         <div class="drop-icon">＋</div>
         <h2>Dépose ton média ici</h2>
-        <p>PNG, JPG, WEBP, GIF, MP4 ou WEBM</p>
+        <p>PNG, JPG, WEBP, GIF, MP4 ou WEBM · 40 Mo max</p>
         <button id="chooseBtn">Choisir un fichier</button>
       </div>
 
@@ -86,9 +90,7 @@
       </div>
     </section>
 
-    <footer>
-      Le lien de la room suffit pour envoyer un média. Ne le partage qu’avec les personnes que tu veux autoriser.
-    </footer>
+    <footer>Partage seulement la room aux personnes que tu veux autoriser.</footer>
   </main>
   <script src="app.js"></script>
 </body>
