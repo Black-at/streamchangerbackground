@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b0b0d">
+  <title>StreamDock Remote</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div class="brand">
+        <div class="logo">SD</div>
+        <div>
+          <h1>StreamDock Remote</h1>
+          <p>Envoie une image ou une vidéo directement vers le StreamDock.</p>
+        </div>
+      </div>
+      <div id="statusPill" class="pill offline">Hors ligne</div>
+    </header>
+
+    <section class="card">
+      <div class="grid two">
+        <label>
+          <span>Adresse de l’API</span>
+          <input id="apiBase" placeholder="https://ton-worker.workers.dev">
+        </label>
+        <label>
+          <span>Room</span>
+          <input id="room" placeholder="ex: zedrox-7f4k92" autocomplete="off">
+        </label>
+      </div>
+      <div class="actions">
+        <button id="saveBtn" class="secondary">Enregistrer</button>
+        <button id="testBtn" class="secondary">Tester la connexion</button>
+      </div>
+    </section>
+
+    <section class="card upload-card">
+      <div id="dropZone" class="drop">
+        <input id="fileInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif,video/mp4,video/webm" hidden>
+        <div class="drop-icon">＋</div>
+        <h2>Dépose ton média ici</h2>
+        <p>PNG, JPG, WEBP, GIF, MP4 ou WEBM</p>
+        <button id="chooseBtn">Choisir un fichier</button>
+      </div>
+
+      <div id="previewPanel" class="preview hidden">
+        <div class="preview-frame">
+          <img id="imgPreview" class="hidden" alt="">
+          <video id="videoPreview" class="hidden" controls muted loop playsinline></video>
+        </div>
+        <div class="preview-meta">
+          <div>
+            <strong id="fileName">—</strong>
+            <span id="fileInfo">—</span>
+          </div>
+          <button id="sendBtn">Envoyer au StreamDock</button>
+        </div>
+        <div class="progress-wrap hidden" id="progressWrap">
+          <div class="progress"><div id="progressBar"></div></div>
+          <span id="progressText">0%</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">
+        <div>
+          <h2>Actuellement diffusé</h2>
+          <p>Le plugin vérifie automatiquement les changements.</p>
+        </div>
+        <button id="refreshBtn" class="secondary">Actualiser</button>
+      </div>
+      <div id="currentEmpty" class="empty">Aucun média pour cette room.</div>
+      <div id="currentMedia" class="current hidden">
+        <div class="current-thumb">
+          <img id="currentImg" class="hidden" alt="">
+          <video id="currentVideo" class="hidden" muted loop autoplay playsinline></video>
+        </div>
+        <div>
+          <strong id="currentName"></strong>
+          <span id="currentDate"></span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Le lien de la room suffit pour envoyer un média. Ne le partage qu’avec les personnes que tu veux autoriser.
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
